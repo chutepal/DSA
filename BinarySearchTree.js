@@ -12,6 +12,7 @@ class BST {
         this.root = null;
     }
 
+    // To insert a new Node in the Tree
     insert(value) {
         const newNode = new Node(value);
 
@@ -42,6 +43,25 @@ class BST {
             }
         }
     }
+
+    // To check whether BST contains the given value
+    contains(value) {
+        // Case 1
+        if(this.root === null) return false;
+
+        // Case 2
+        let temp = this.root;
+        while(temp) {
+            if(value === temp.value) return true;
+
+            if(value < temp.value) {
+                temp = temp.left
+            } else {
+                temp = temp.right
+            }
+        }
+        return false;
+    }
 }
 
 const myTree = new BST();
@@ -51,6 +71,5 @@ myTree.insert(76);
 myTree.insert(18);
 myTree.insert(52);
 myTree.insert(82);
-debugger
 myTree.insert(27)
-console.log(myTree)
+console.log(myTree.contains(108))

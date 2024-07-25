@@ -1,3 +1,7 @@
+### To execute code
+
+Run node <Filename>.js
+
 ### Pointers:
 
 # Pass by value example:
@@ -126,3 +130,68 @@ Rules:
         right: null,
         count: 1
     }
+
+
+### Hash table
+
+#LINK: https://www.youtube.com/watch?v=kTh5nAqCkOA&list=PLC3y8-rFHvwg6nsAOfC5Is18KB2DrVOJy&index=29
+
+* A hash table, also known as hash map, is a data structure that is used to store key-value pairs
+* Given a key, you can associate a value with that key for very fast lookup
+* Javascript's object is a special implementation of the hash table data structure. However, Object class adds it's own keys. Key that you input may conflict and overwrite the inherited default properties.
+
+Here we will be creating our own hash table.
+
+# A hashing funtion:
+1. accepts the string key
+2. converts it into hash code
+3. maps it to a numeric index(withing the bounds of array)
+
+# Operations:
+* Set: To store a key-value pair
+* Get: To retrieve a value given its key
+* Remove: To delete a key value pair
+                                                                    
+                                                                    
+        Keys                                                        Values              
+                                     ___________               ________________           
+                                    |           |             |00|             |           
+         in ----------------------> |           |------------>|01|  India      |    
+                                    |           |             |02|             |  
+         au ----------------------> |   Hash    |------------>|03|  Australia  |    
+                                    | Function  |             |04|             |  
+         fr ----------------------> |           |------------>|05|  France     |  
+                                    |           |             |06|             |  
+         it ----------------------> |           |------------>|07|  Italy      |   
+                                    |           |             |08|             | 
+                                    |___________|             |09|             | 
+                                                              |10|_____________|  
+
+# Usage
+
+ Hash table are typically implemented where constant time lookup and insertion are required
+
+ Examples:
+1. Database indexing
+2. Caches
+
+# Collision
+
+Hashing function may generate same index which will overwrite the previous data resulting into loss of data.
+To avoid that, we can store an array of key-value pair at the same location
+
+        Keys                                                                Values              
+                                     ___________               _____________________________________           
+                                    |           |             |00|                                  |           
+         in ----------------------> |           |------------>|01| [['in', 'India'] [ni, Nicola]]   | <----- Bucket   
+                                    |           | /           |02|                                  |
+         ni ----------------------> |           |/            |03|                                  |
+                                    |           |             |04|                                  |  
+         au ----------------------> |   Hash    |------------>|05|  [['au', 'Australia']]           |    
+                                    | Function  |             |06|                                  |  
+         fr ----------------------> |           |------------>|07|  [['fr', 'France']]              |  
+                                    |           |             |08|                                  |  
+         it ----------------------> |           |------------>|09|  [['it', 'Italy']]               |   
+                                    |           |             |10|                                  | 
+                                    |___________|             |11|                                  | 
+                                                              |12|__________________________________|  
