@@ -195,3 +195,93 @@ To avoid that, we can store an array of key-value pair at the same location
                                     |           |             |10|                                  | 
                                     |___________|             |11|                                  | 
                                                               |12|__________________________________|  
+
+
+
+### Graph
+
+A graph is a non-linear data structure that consists of a finite number of vertices(also called nodes) connected by edges.
+
+Trees are a specific type of a graph data structure.
+
+# Graph visualization
+                B
+               / \
+              /   \
+             A     C 
+
+Nodes/Vertices: A,B,C
+Edges: -- (Lines connecting nodes)
+
+# Types of graphs
+
+ 1. Directed
+ - A graph in which edges have directions
+ - Edges are usually represented by arrows pointing in the direction the graph can be traversed
+    A ----> B ----> C
+
+ 2. Undirected 
+ - A graph in which edges are bi-directional
+ - A graph can be traveresed in either direction
+ - The absence of arrows tells us that the graph is undirected
+    A ---- B ---- C
+    C ---- B ---- A
+
+More types:
+* A graph having only vertices and no edges
+* Multiple edges from one node
+* Cycles in the graph
+* Self loops on a node
+* Some disconnected nodes
+* Weights on the edges representing the cost of traversing on that edge
+
+
+# Usage
+
+1. Google maps
+    Nodes: Cities
+    Edges: Paths connecting the cities
+
+2. Social media sites
+    Nodes: Users
+    Edges: Links between connections
+
+
+# Adjacency matrix vs Adjacency list
+
+                                                            B
+                                                           / \
+                                                          /   \
+                                                         A     C 
+
+                            Adjacency Matrix                                        Adjacency list
+
+                                A   B   C                                        Vertices    Adjacent vertices
+                               ----------                                             A ------> B
+  Representation            A | 0   1   0                                             B ------> A, C
+                            B | 1   0   1                                             C ------> B
+                            C | 0   1   0                   
+
+                            0 -> Not connected
+                            1 -> Connected
+
+  Example                  adjacencyMatrix =                                        adjacencyList = {                
+                              [                                                         'A': ['B'],
+                                [0, 1, 0],                                              'B': ['A', 'C'],
+                                [1, 0, 1],                                              'C': ['B']
+                                [0, 1, 0]                                           }  
+                              ]
+
+
+                            
+   Storage                  - More efficient                                        - Less efficient
+                            - Store all values irresptive of whether                - Store the values for the existing edges
+                              edge exists or not                                      only
+
+
+   Inserting/Finding        - Linear time complexity                                - Constant time complexity
+   adjacent nodes
+
+
+   Storing additional       - To be stored externally                               - Can be stored in the same list
+   value(e.g. weight)
