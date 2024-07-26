@@ -258,30 +258,30 @@ More types:
 
                                 A   B   C                                        Vertices    Adjacent vertices
                                ----------                                             A ------> B
-  Representation            A | 0   1   0                                             B ------> A, C
-                            B | 1   0   1                                             C ------> B
-                            C | 0   1   0                   
-
-                            0 -> Not connected
-                            1 -> Connected
-
-  Example                  adjacencyMatrix =                                        adjacencyList = {                
-                              [                                                         'A': ['B'],
-                                [0, 1, 0],                                              'B': ['A', 'C'],
-                                [1, 0, 1],                                              'C': ['B']
-                                [0, 1, 0]                                           }  
-                              ]
-
-
-                            
-   Storage                  - More efficient                                        - Less efficient
-                            - Store all values irresptive of whether                - Store the values for the existing edges
-                              edge exists or not                                      only
-
-
-   Inserting/Finding        - Linear time complexity                                - Constant time complexity
-   adjacent nodes
-
-
-   Storing additional       - To be stored externally                               - Can be stored in the same list
-   value(e.g. weight)
+  Representation        |   A | 0   1   0                                             B ------> A, C
+                        |   B | 1   0   1                                             C ------> B
+                        |   C | 0   1   0                   
+                        |
+                        |   0 -> Not connected
+                        |   1 -> Connected
+                        |
+  Example               |   adjacencyMatrix =                                        adjacencyList = {                
+                        |     [                                                         'A': ['B'],
+                        |       [0, 1, 0],                                              'B': ['A', 'C'],
+                        |       [1, 0, 1],                                              'C': ['B']
+                        |       [0, 1, 0]                                           }  
+                        |     ]
+                        |
+                        |   
+                        |                          
+   Storage              |   - More efficient                                        - Less efficient
+                        |   - Store all values irresptive of whether                - Store the values for the existing edges
+                        |     edge exists or not                                      only
+                        |
+                        |   
+   Inserting/Finding    |   - Linear time complexity                                - Constant time complexity
+   adjacent nodes       |
+                        |
+                        |
+   Storing additional   |   - To be stored externally                               - Can be stored in the same list
+   value(e.g. weight)   |
