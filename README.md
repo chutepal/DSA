@@ -254,10 +254,10 @@ More types:
                                                           /   \
                                                          A     C 
 
-                            Adjacency Matrix                                        Adjacency list
-
-                                A   B   C                                        Vertices    Adjacent vertices
-                               ----------                                             A ------> B
+                        |   Adjacency Matrix                                        Adjacency list
+                        |
+                        |       A   B   C                                        Vertices    Adjacent vertices
+                        |      ----------                                             A ------> B
   Representation        |   A | 0   1   0                                             B ------> A, C
                         |   B | 1   0   1                                             C ------> B
                         |   C | 0   1   0                   
