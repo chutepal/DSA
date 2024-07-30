@@ -285,3 +285,66 @@ More types:
                         |
    Storing additional   |   - To be stored externally                               - Can be stored in the same list
    value(e.g. weight)   |
+
+
+# Heap
+
+1. It is similar to Binary search Tree(BST), only difference is that highest value is at the top in heap.
+2. Major diff in implementation of heaps and BST is, heaps are implemented using array whereas BST uses node
+3. It is necessary that each node is greater that it's descendents
+4. Two types of heaps are:
+                        
+
+                  Max heap (node > descendents)                       Min heap (node < descendents)
+
+                   99                        99                                     18
+                   /\                        /\                                     /\
+                  /  \                      /  \                                   /  \
+                72    61       OR         72    55                               27    61  
+               / \    / \                / \    / \                             / \    / \ 
+             58  55  27  18            58  61  27  18                         58  55  72  99  
+
+  
+## Array implementation:
+
+There are two common ways to implement the heap:
+1. Start with index 0
+2. Leave index 0 blank
+
+     99                                                                * 1 as start index:
+      |                                            leftChild = 2 * parentIndex         parent = math.floor(childIndex / 2)
+      |___________                                 rightChild = 2 * parentIndex - 1
+           |     |                  
+          72     61                                                    * 0 as start index:
+           |     |___________________________      leftChild = 2 * parentIndex + 1     parent = math.floor((childIndex - 1) / 2)
+           |__________________      |       |      rightChild = 2 * parentIndex + 2
+                       |     |      |       |
+                      58     55     27     18 
+
+
+
+|    |99 | 72  | 61  |  58  | 55 |  27 |  18 |      <---------- Array
+ -------------------------------------------- 
+   0   1    2     3      4     5     6     7        <---------- Index      
+
+                    OR
+
+ |99 | 72  | 61  |  58  | 55 |  27 |  18 |   |      <---------- Array
+ -------------------------------------------- 
+   0   1    2     3      4     5     6     7        <---------- Index 
+
+
+If tree is not complete, then array would look as below:
+     99
+      |                                     
+      |___________                          
+           |     |
+          72     61
+           |     |___________________________
+           |__________________      |       |
+                       |     |      |       |
+                      58            27     18 
+
+|    |99 | 72  | 61 | 58  |      |  27 |  18 |      <---------- Array
+ -------------------------------------------- 
+   0   1    2     3    4      5     6     7        <---------- Index 
