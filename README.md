@@ -1,10 +1,10 @@
-### To execute code
+# To execute code
 
 Run node <Filename>.js
 
-### Pointers:
+# Pointers:
 
-# Pass by value example:
+## Pass by value example:
 let a = 2;
 let b = 2;
 
@@ -18,7 +18,7 @@ console.log(b) // 2
 
 Here value of a is changed but value of b remains the same since we have copied the value.
 
-# Pass by reference example:
+## Pass by reference example:
 let a = {
     value: 3
 }
@@ -37,7 +37,7 @@ console.log(b) // {value: 8}
 Here value of b will also change since we have copied it by reference. This means both the variable are pointing to same memory location.
 
 
-### LinkedList
+# LinkedList
 
 In array, memory allocation is contagious that means array elements are placed in a sequencial memory locations whereas in linked list, nodes are placed in a random memory locations and are connected by pointers.
                 
@@ -47,7 +47,7 @@ In array, memory allocation is contagious that means array elements are placed i
 Node:    (9)--->null
 
 
-# BigO
+## BigO
 
 Operations                          LinkedList                          Array
 ----------                          ----------                          -----
@@ -62,7 +62,7 @@ Lookup by index                        O(n)                              O(1)*
 Lookup by value                        O(n)                              O(n)
 
 
-# Under the hood
+## Under the hood
 
                 head                    tail    
                 |                       |
@@ -86,7 +86,7 @@ LinkedList = {
             }
 
 
-### Doubly LinkedList
+# Doubly LinkedList
 
 Doubly linked list points towards both next and prev nodes.
          
@@ -104,7 +104,7 @@ Node:    null <----- 9 -----> null
 
 
 
-### Binary Search Tree
+# Binary Search Tree
     
 Single node:            21  
                        /  \
@@ -132,7 +132,7 @@ Rules:
     }
 
 
-### Hash table
+# Hash table
 
 #LINK: https://www.youtube.com/watch?v=kTh5nAqCkOA&list=PLC3y8-rFHvwg6nsAOfC5Is18KB2DrVOJy&index=29
 
@@ -142,12 +142,12 @@ Rules:
 
 Here we will be creating our own hash table.
 
-# A hashing funtion:
+## A hashing funtion:
 1. accepts the string key
 2. converts it into hash code
 3. maps it to a numeric index(withing the bounds of array)
 
-# Operations:
+## Operations:
 * Set: To store a key-value pair
 * Get: To retrieve a value given its key
 * Remove: To delete a key value pair
@@ -167,7 +167,7 @@ Here we will be creating our own hash table.
                                     |___________|             |09|             | 
                                                               |10|_____________|  
 
-# Usage
+## Usage
 
  Hash table are typically implemented where constant time lookup and insertion are required
 
@@ -175,7 +175,7 @@ Here we will be creating our own hash table.
 1. Database indexing
 2. Caches
 
-# Collision
+## Collision
 
 Hashing function may generate same index which will overwrite the previous data resulting into loss of data.
 To avoid that, we can store an array of key-value pair at the same location
@@ -198,13 +198,13 @@ To avoid that, we can store an array of key-value pair at the same location
 
 
 
-### Graph
+# Graph
 
 A graph is a non-linear data structure that consists of a finite number of vertices(also called nodes) connected by edges.
 
 Trees are a specific type of a graph data structure.
 
-# Graph visualization
+## Graph visualization
                 B
                / \
               /   \
@@ -213,7 +213,7 @@ Trees are a specific type of a graph data structure.
 Nodes/Vertices: A,B,C
 Edges: -- (Lines connecting nodes)
 
-# Types of graphs
+## Types of graphs
 
  1. Directed
  - A graph in which edges have directions
@@ -236,7 +236,7 @@ More types:
 * Weights on the edges representing the cost of traversing on that edge
 
 
-# Usage
+## Usage
 
 1. Google maps
     Nodes: Cities
@@ -247,7 +247,7 @@ More types:
     Edges: Links between connections
 
 
-# Adjacency matrix vs Adjacency list
+## Adjacency matrix vs Adjacency list
 
                                                             B
                                                            / \
