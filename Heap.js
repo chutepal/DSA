@@ -28,7 +28,7 @@ class Heap {
     ]);
   }
 
-  // To insert value in heap
+  // To insert value in heap: O(log n)
   insert(value) {
     /** Steps:
      * 1. Push the value to the heap
@@ -49,15 +49,58 @@ class Heap {
       current = this.#parent(current);
     }
   }
+
+  #sinkDown(index) {
+    let ind = index;
+    let maxIndex = index;
+
+    while(true) {
+        let leftChildInd = this.#leftChild(ind);
+        let rightChildInd = this.#rightChild(ind);
+
+        if(this.#heap[leftChildInd] > this.#heap[maxIndex] && leftChildInd < this.#heap.length) {
+            maxIndex = leftChildInd;
+        }
+        if(this.#heap[rightChildInd] > this.#heap[maxIndex] && rightChildInd < this.#heap.length) {
+            maxIndex = rightChildInd;
+        }
+        if(maxIndex !== ind) {
+            this.#swap(maxIndex, ind);
+            ind = maxIndex;
+        } else {
+            return;
+        }
+    }
+  }
+
+  // Removes top element: O(log n)
+  remove() {
+    // Case 1: 0 values
+    if(this.#heap.length < 1) return;
+
+    // Case 2: 1 value
+    if(this.#heap.length === 1) return this.#heap.pop();
+
+    // Case 3: 2+ values
+    const maxValue = this.#heap[0]; // To return the top value
+    this.#heap[0] = this.#heap.pop(); // Make tree complete by moving last value to the top first
+    console.log('Before sink down=>', this.getHeap())
+    this.#sinkDown(0); // Re-arrange heap to make it a complete tree
+    console.log('After sink down=>', this.getHeap())
+
+    return maxValue;
+  }
 }
 
 const myHeap = new Heap();
-myHeap.insert(72);
-myHeap.insert(61);
-myHeap.insert(99);
-myHeap.insert(58);
+myHeap.insert(75);
+myHeap.insert(80);
+myHeap.insert(55);
+myHeap.insert(60);
+myHeap.insert(50);
+myHeap.insert(65);
 
+myHeap.insert(95);
 console.log(myHeap.getHeap())
 
-myHeap.insert(100);
-console.log(myHeap.getHeap())
+myHeap.remove();

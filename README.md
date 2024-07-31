@@ -348,3 +348,8 @@ If tree is not complete, then array would look as below:
 |    |99 | 72  | 61 | 58  |      |  27 |  18 |      <---------- Array
  -------------------------------------------- 
    0   1    2     3    4      5     6     7        <---------- Index 
+
+
+ # Remove
+
+ Here only one element can be removed: the one at the top
